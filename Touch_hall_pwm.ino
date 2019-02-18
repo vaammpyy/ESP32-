@@ -25,8 +25,8 @@ int hallval = 0; //defining variables for calculation
 #include "Filter.h" //including filtering libraries
 
 ExponentialFilter<long> ADCFilter0(2, 0);// Create a new exponential filter with a weight of X and an initial value of Y.
-ExponentialFilter<long> ADCFilter1(70, 0);// Create a new exponential filter with a weight of X and an initial value of Y.
-ExponentialFilter<long> ADCFilter2(10, 0);// Create a new exponential filter with a weight of X and an initial value of Y.
+ExponentialFilter<long> ADCFilter1(2, 0);// Create a new exponential filter with a weight of X and an initial value of Y.
+ExponentialFilter<long> ADCFilter2(2, 0);// Create a new exponential filter with a weight of X and an initial value of Y.
 
 void setup()
 {
@@ -49,7 +49,7 @@ void calculate(int touch, int hall) //procesing sensor reading to reduce noise a
   ADCFilter0.Filter(hall);
   touchval = 91 - ADCFilter1.Current();
   hallval = ADCFilter0.Current() - 28;
-  s = 20 + touchval * 2 + hallval * 2;
+  s = 20 + touchval * 2 + abs(hallval) * 2;
   ADCFilter2.Filter(s);
   s1 = ADCFilter2.Current();
 }
