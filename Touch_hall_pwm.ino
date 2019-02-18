@@ -2,12 +2,13 @@
 /*This program is to demonstrate touch and hall sensor of ESP32.
   It uses built-in LED of ESP32 connected to PIN-2(this may arry from board to board) to show values using PWM signals.
   By touching pin D4 or bring a magnet close to ESP32 chip you will see brightness of the built-in LED will change.
-
+  
+   link to libraries used
+   https://github.com/Megunolink/MLP
+   
    created by-Rohan Kumar
    date-18/2/2019
 
-   link to libraries used
-   https://github.com/Megunolink/MLP
 */
 
 const int ledPin = 2; //defining LED pin
